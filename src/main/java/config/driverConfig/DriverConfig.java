@@ -31,7 +31,7 @@ public class DriverConfig {
 
 
   public Optional<WebDriver> configureWebDriver(){
-    Browser browser = Enums.getIfPresent(Browser.class, browserName).orNull();
+    Browser browser = Enums.getIfPresent(Browser.class, browserName.toUpperCase()).orNull();
     Preconditions.checkState(browser != null, "provide valid browser name");
     return Optional.ofNullable(browserToDriverMap.get(browser).getWebDriver());
   }
